@@ -90,9 +90,9 @@ if (typeof(resume) != 'object') { // Ensure valid resume information
 
 // Write generated resume to STDOUT or output file
 var output = wres.render(args.format, args.theme, resume);
-if (args.outfile[0]) {
+if (args.outfile) {
   fs.writeFileSync(args.outfile[0], output);
 } else {
-  console.log(out);
+  console.log(output);
 }
 process.exit(0);
