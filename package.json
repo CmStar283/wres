@@ -1,0 +1,28 @@
+{
+  "name": "wres",
+  "version": "0.1.0",
+  "description": "To be added.",
+  "main": "wres.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CmStar283/wres.git"
+  },
+  "author": "Cm_Star",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/CmStar283/wres/issues"
+  },
+  "homepage": "https://github.com/CmStar283/wres#readme",
+  "dependencies": {
+    "argparse": "^1.0.2",
+    "clean-css": "^3.4.6",
+    "jade": "^1.11.0",
+    "js-yaml": "^3.4.3"
+  },
+  "bin": {
+    "wres": "bin/wres"
+  }
+}

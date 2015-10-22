@@ -1,0 +1,82 @@
+#!/usr/bin/env node
+
+'use strict';
+
+var fs = require('fs');
+var path = require('path');
+var ArgumentParser = require('argparse').ArgumentParser;
+var wres = require('..');
+var packageInfo = require('../package.json');
+var yaml = require('js-yaml');
+
+// Define and parse CLI arguments
+var argparser = new ArgumentParser({
+  version: packageInfo.version,
+  addHelp: true,
+  description: packageInfo.description
+});
+argparser.addArgument(
+  ['-f', '--format'],
+  {
+    help: 'Specify an external Jade template to use (not recommended).',
+    nargs: 1
+  }
+);
+argparser.addArgument(
+  ['-o', '--out'],
+  {
+    help: 'Specify output file/location.',
+    nargs: 1,
+    metavar: 'OUTPUT',
+    dest: 'outfile'
+  }
+);
+argparser.addArgument(
+  ['-t', '--theme'],
+  {
+    help: 'Specify a pre-defined or external CSS theme.',
+    nargs: 1
+  }
+);
+argparser.addArgument(
+  ['--list-themes'],
+  {
+    help: 'List pre-defined themes.',
+    action: 'storeTrue',
+    dest: 'listThemes'
+  }
+);
+argparser.addArgument(
+  ['resume'],
+  {
+    help: 'YAML or JSON file containing the resume information',
+    nargs: '?'
+  }
+);
+var args = argparser.parseArgs();
+
+// List pre-defined themes, if specified
+if (args.listThemes) {
+  var files = fs.readdirSync(path.resolve(__dirname, '../styles'));
+  files.forEach(function(e, i, a) {
+    a[i] = path.basename(e, path.extname(e));
+  });
+  console.log('Available themes: ' + files);
+  process.exit(0);
+}
+
+// Read and parse resume information
+var resume = yaml.safeLoad(fs.readFileSync(args.resume));
+if (typeof(resume) != 'object') { // Ensure valid resume information
+  console.error('Could not parse the given resume information!');
+  process.exit(1);
+}
+
+// Write generated resume to STDOUT or output file
+var output = wres.render(args.format, args.theme, resume);
+if (args.outfile[0]) {
+  fs.writeFileSync(args.outfile[0], output);
+} else {
+  console.log(out);
+}
+process.exit(0);
