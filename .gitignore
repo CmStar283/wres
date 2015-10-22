@@ -1,2 +1,5 @@
+# Node modules
 node_modules
-wres*.tgz
+
+# Packed NPM packages
+wres-*.tgz
