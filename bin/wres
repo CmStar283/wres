@@ -101,7 +101,12 @@ var options = {
 };
 
 // Write generated resume to STDOUT or output file
-var output = wres.render(args.format, args.theme, resume, options);
+var output = wres.render(
+  args.format ? fs.readFileSync(path.resolve(args.format[0]), 'utf8') : null,
+  args.theme ? fs.readFileSync(path.resolve(args.theme[0]), 'utf8') : null,
+  resume,
+  options
+);
 if (args.outfile) {
   fs.writeFileSync(args.outfile[0], output);
 } else {
