@@ -48,6 +48,13 @@ argparser.addArgument(
   }
 );
 argparser.addArgument(
+  ['-p', '--pretty'],
+  {
+    help: 'Output pretty HTML.',
+    action: 'storeTrue'
+  }
+);
+argparser.addArgument(
   ['-t', '--theme'],
   {
     help: 'Specify a pre-defined or external CSS theme.',
@@ -88,8 +95,13 @@ if (typeof(resume) != 'object') { // Ensure valid resume information
   process.exit(1);
 }
 
+// Assemble options
+var options = {
+  pretty: args.pretty
+};
+
 // Write generated resume to STDOUT or output file
-var output = wres.render(args.format, args.theme, resume);
+var output = wres.render(args.format, args.theme, resume, options);
 if (args.outfile) {
   fs.writeFileSync(args.outfile[0], output);
 } else {
