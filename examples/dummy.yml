@@ -1,0 +1,30 @@
+address:
+  school: |
+    100 Institute Road
+    WPI Mailbox #2366
+    Worcester, MA, 01609
+  permanent: |
+    1 Martian Road
+    Mars, 56564
+    Mobile Phone: +1 (555) 555-5555
+name: Test Dummy
+email: tdummy@wpi.edu
+sections:
+  -
+    title: Education
+    items:
+      -
+        title: Worcester Polytechnic Institute
+        location: 'Worcester, MA'
+        date: August 2015-May 2019
+      -
+        title: Mars High School
+        location: 'Mars'
+        date: September 2011-June 2015
+  -
+    title: Awards
+    items:
+      -
+        title: Biggest Ass Hole Competition
+        date: June 2014
+referencesUponRequest: true

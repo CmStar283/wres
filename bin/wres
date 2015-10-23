@@ -88,25 +88,24 @@ if (args.listThemes) {
   process.exit(0);
 }
 
-// Read and parse resume information
-var resume = yaml.safeLoad(fs.readFileSync(args.resume));
-if (typeof(resume) != 'object') { // Ensure valid resume information
-  console.error('Could not parse the given resume information!');
-  process.exit(1);
-}
-
 // Assemble options
 var options = {
   pretty: args.pretty
 };
 
 // Write generated resume to STDOUT or output file
-var output = wres.render(
-  args.format ? fs.readFileSync(path.resolve(args.format[0]), 'utf8') : null,
-  args.theme ? fs.readFileSync(path.resolve(args.theme[0]), 'utf8') : null,
-  resume,
-  options
-);
+try {
+  var output = wres.render(
+    args.format ? fs.readFileSync(path.resolve(args.format[0]), 'utf8') : null,
+    args.theme ? fs.readFileSync(path.resolve(args.theme[0]), 'utf8') : null,
+    fs.readFileSync(args.resume),
+    options
+  );
+} catch (e) {
+  console.error(e.message);
+  process.exit(1);
+}
+
 if (args.outfile) {
   fs.writeFileSync(args.outfile[0], output);
 } else {

@@ -1,10 +1,10 @@
 {
   "name": "wres",
-  "version": "0.1.0",
-  "description": "To be added.",
+  "version": "0.1.1",
+  "description": "Resume webpage generator",
   "main": "wres.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -24,5 +24,8 @@
   },
   "bin": {
     "wres": "bin/wres"
+  },
+  "devDependencies": {
+    "mocha": "^2.3.3"
   }
 }
