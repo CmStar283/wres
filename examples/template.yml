@@ -1,0 +1,38 @@
+address:
+  school: |
+    Address 1
+    Address 2
+    City, State, Zip Code
+  permanent: |
+    Address 1
+    Address 2
+    City, State, Zip Code
+name: Tom Plate
+email: email@example.com
+phone: +1 (555) 555-5555
+sections:
+  -
+    title: Objective
+    description: Template description.
+  -
+    title: Education
+    items:
+      -
+        title: Template University
+        date: Start date-End date
+        location: Location
+        description: Template description.
+      -
+        title: Template High School
+        date: Start date-End date
+        location: Location
+        description: Template description.
+  -
+    title: Template Section
+    items:
+      -
+        title: Best Template Award
+        date: Date
+        location: Location
+        description: Template description.
+referencesUponRequest: true
