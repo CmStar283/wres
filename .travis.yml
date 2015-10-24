@@ -4,9 +4,6 @@ after_script:
   - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
   - rm -rf ./coverage
 language: node_js
-os:
-  - osx
-  - linux
 node_js:
   - stable
 sudo: false
