@@ -15,42 +15,40 @@
 doctype html
 html
   head
+    meta(charset="UTF-8")
+    meta(name="author" content="#{name}")
     title #{name}'s Resume
-    style !{__theme}
+    style!= __theme
   body
-    header.resume-header
-      address.rh-address.rh-address--left
-        strong School Address
+    header.header
+      address.header-address.header-address--left
+        strong.header-address-title School Address
         br
         = address.school
-      div.rh-about
-        h1.rh-about-name= name
-        p.rh-about-email= email
-      address.rh-address.rh-address--right
-        strong Permanent Address
+      div.header-about
+        h1.header-about-name= name
+        p.header-about-email= email
+        p.header-about-phone= phone
+      address.header-address.header-address--right
+        strong.header-address-title Permanent Address
         br
         = address.permanent
     main
       each section in sections
         section.section
-          h2.section-header= section.name
-          hr
+          h2.section-title= section.title
           p.section-description= section.description
           if section.items
-            ul.rh-section-list
-              each i in section.items
-                li
-                  if i.date
-                    p.item-date= i.date
-                    h3
-                      span.item-name= i.name
-                      if i.location
-                        span.item-location , #{i.location}
-                  ul
-                    if i.description
-                      li.item-description= i.description
+            ul.item-list
+              each item in section.items
+                li.item
+                  div.item-header
+                    h3.item-title= item.title
+                    if item.location
+                      p.item-location , #{item.location}
+                    if item.date
+                      p.item-date= item.date
+                  p.item-description= item.description
     footer
       if referencesUponRequest
-        hr
-        h3 References available upon request.
-        hr
+        h3.references-notice References available upon request.

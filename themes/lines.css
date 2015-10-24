@@ -15,19 +15,16 @@
 
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
-html, body, div, span, applet, object, iframe,
+html, body, div, span, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+a, abbr, address, cite, code, del, dfn,
+em, img, ins, kbd, q, s, samp, small, strike,
+strong, sub, sup, tt, var, b, u, i, dl, dt,
+dd, ol, ul, li, fieldset, label, legend, table,
+caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, figure,
+figcaption, footer, header, hgroup, menu, nav,
+output, section, summary, time, mark {
   margin: 0;
   padding: 0;
   border: 0;
@@ -35,7 +32,6 @@ time, mark, audio, video {
   font: inherit;
   vertical-align: baseline;
 }
-/* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
   display: block;
@@ -46,88 +42,92 @@ body {
 ol, ul {
   list-style: none;
 }
-blockquote, q {
-  quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-  content: '';
-  content: none;
-}
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+
+/* Theme */
 *, *:before, *:after {
   box-sizing: border-box;
 }
-:root, html,  body {
+:root {
   font-family: "Open Sans", "Arial", sans-serif;
   font-size: 10pt;
   text-rendering: optimizeLegibility;
 }
-.resume-header {
-  position: relative;
+@media not print {
+  body {
+    margin: 16px 32px;
+  }
 }
-.resume-header:after {
-  content: "";
-  display: block;
-  clear: both;
+
+/* Header */
+.header {
+  display: flex;
 }
-.rh-address {
-  text-align: center;
-}
-.rh-address--left {
-  float: left;
-}
-.rh-address--right {
-  float: right;
-}
-.rh-about {
-  width: 100%;
-  height: 100%;
+.header-about {
   display: flex;
   text-align: center;
   flex-flow: column nowrap;
   align-items: center;
   justify-content: center;
-  position: absolute;
 }
-.rh-about-name {
+.header-about-name {
   font-size: 2em;
   font-weight: bold;
 }
-.rh-about-email {
+.header-about-email {}
+.header-about-phone {}
+.header-address {
+  flex-grow: 1;
+}
+.header-address--left {
+  text-align: left;
+}
+.header-address--right {
+  text-align: right;
+}
+.header-address-title {
+  font-weight: bold;
+}
 
-}
-.section {
-  page-break-inside: avoid;
-}
-.section-header {
-  font-size: 1.75em;
-  font-weight: bold;
-  margin-top: 0.75em;
-}
-.section-description {
-
-}
-.rh-section-list {
-  list-style: none;
-}
-.item-name {
-  font-size: 1.25em;
-  font-weight: bold;
-}
-.item-location {
-  font-size: 1.25em;
-  font-weight: bold;
+/* Item */
+.item {}
+.item-date {
+  text-align: right;
+  flex-grow: 1;
 }
 .item-description {
   margin-left: 4em;
 }
-.item-date {
-  float: right;
+.item-header {
+  display: flex;
+  align-items: flex-end;
 }
-strong {
+.item-list {}
+.item-location {}
+.item-title {
   font-weight: bold;
+}
+
+/* Section */
+.section {
+  margin: 0.5em 0;
+  page-break-inside: avoid;
+}
+.section-description {}
+.section-title {
+  font-size: 1.5em;
+  font-weight: bold;
+  border-bottom: 1px solid black;
+  margin-bottom: 0.25em;
+}
+
+/* Miscellaneous */
+.references-notice {
+  font-weight: bold;
+  padding: 0.25em 0;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
 }

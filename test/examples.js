@@ -8,7 +8,7 @@ var wres = require('..');
 describe('Examples', function() {
   fs.readdirSync(path.resolve(__dirname, '../examples')).forEach(function (e) {
     if (/\.(yml|json)/.test(e)) {
-      it(path.basename(e, path.extname(e)) + 'renders without error', function() {
+      it(path.basename(e, path.extname(e)) + ' renders without error', function() {
         assert.doesNotThrow(function() {
           wres.render(
             null,
