@@ -98,7 +98,7 @@ try {
   var output = wres.render(
     args.format ? fs.readFileSync(path.resolve(args.format[0]), 'utf8') : null,
     args.theme ? fs.readFileSync(path.resolve(args.theme[0]), 'utf8') : null,
-    fs.readFileSync(args.resume),
+    fs.readFileSync(args.resume, 'utf8'),
     options
   );
 } catch (e) {
