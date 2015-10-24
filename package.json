@@ -4,7 +4,8 @@
   "description": "Resume webpage generator",
   "main": "wres.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "cover": "istanbul cover ./node_modules/mocha/bin/_mocha"
   },
   "repository": {
     "type": "git",
@@ -26,6 +27,9 @@
     "wres": "bin/wres"
   },
   "devDependencies": {
-    "mocha": "^2.3.3"
+    "coveralls": "^2.11.4",
+    "istanbul": "^0.4.0",
+    "mocha": "^2.3.3",
+    "mocha-lcov-reporter": "^1.0.0"
   }
 }
