@@ -55,6 +55,14 @@ argparser.addArgument(
   }
 );
 argparser.addArgument(
+  ['--print-template'],
+  {
+    help: 'Print the template resume and exit.',
+    action: 'storeTrue',
+    dest: 'printTemplate'
+  }
+);
+argparser.addArgument(
   ['-t', '--theme'],
   {
     help: 'Specify a pre-defined or external CSS theme.',
@@ -85,6 +93,17 @@ if (args.listThemes) {
     a[i] = path.basename(e, path.extname(e));
   });
   console.log('Available themes: ' + files);
+  process.exit(0);
+}
+// Print the template, if specified
+if (args.printTemplate) {
+  var template = fs.readFileSync(
+    path.resolve(__dirname, '../examples/template.yml'), 'utf8'
+  );
+  if (args.outfile)
+    fs.writeFileSync(args.outfile[0], template);
+  else
+    console.log(template);
   process.exit(0);
 }
 
