@@ -3,13 +3,13 @@
 
 [![NPM](https://nodei.co/npm/wres.png)](https://nodei.co/npm/wres/)
 
-### install
+## install
 With [npm](https://www.npmjs.com/package/npm) do:
 ``` sh
 npm i -g wres
 ```
 
-### usage
+## usage
 ```
 usage: wres [-h] [-v] [-f FORMAT] [-o OUTPUT] [-p] [--print-template]
             [-t THEME] [--list-themes]
@@ -35,7 +35,7 @@ Optional arguments:
   --list-themes         List pre-defined themes.
 ```
 
-### getting started
+## getting started
 To start, copy the template resume (also shown below):
 ``` sh
 wres --print-template -o resume.yml
@@ -45,7 +45,7 @@ To generate the resume:
 wres -o resume.html resume.yml
 ```
 
-### template resume
+## template resume
 ``` yaml
 address:
   school: |
@@ -87,5 +87,5 @@ sections:
 referencesUponRequest: true
 ```
 
-### changelog
+## changelog
 See the [release page](https://github.com/CmStar283/wres/releases).
