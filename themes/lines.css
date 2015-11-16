@@ -106,6 +106,13 @@ table {
   align-items: flex-end;
 }
 .item-list {}
+.item-list--bulleted .item-header::before {
+  content: "\25CF";
+  margin-right: 1em;
+}
+.item-list--bulleted .item-title {
+  font-weight: normal;
+}
 .item-location {}
 .item-title {
   font-weight: bold;

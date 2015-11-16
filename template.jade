@@ -12,6 +12,22 @@
   the License for the specific language governing permissions and
   limitations under the License.
 
+//- Mixins
+
+mixin items(items)
+  each item in items
+    li.item
+      div.item-header
+        h3.item-title= item.title
+        if item.location
+          p.item-location , #{item.location}
+        if item.date
+          p.item-date= item.date
+      if item.description
+        p.item-description= item.description
+
+//- Page
+
 doctype html
 html
   head
@@ -40,15 +56,10 @@ html
           p.section-description= section.description
           if section.items
             ul.item-list
-              each item in section.items
-                li.item
-                  div.item-header
-                    h3.item-title= item.title
-                    if item.location
-                      p.item-location , #{item.location}
-                    if item.date
-                      p.item-date= item.date
-                  p.item-description= item.description
+              +items(section.items)
+          if section.bullet_items
+            ul.item-list.item-list--bulleted
+              +items(section.bullet_items)
     footer
       if referencesUponRequest
         h3.references-notice References available upon request.

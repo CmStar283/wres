@@ -28,6 +28,17 @@ sections:
         location: Location
         description: Template description.
   -
+    title: Experience
+    bullet_items:
+      -
+        title: Template Experience 1
+        date: Date
+        location: Location
+      -
+        title: Template Experience 2
+        date: Date
+        location: Location
+  -
     title: Template Section
     items:
       -
