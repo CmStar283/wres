@@ -32,6 +32,15 @@ var argparser = new ArgumentParser({
   description: packageInfo.description
 });
 argparser.addArgument(
+  ['-d', '--density'],
+  {
+    defaultValue: ['comfortable'],
+    help: 'Use the alternative, compact template.',
+    nargs: 1,
+    metavar: 'DENSITY'
+  }
+);
+argparser.addArgument(
   ['-f', '--format'],
   {
     help: 'Specify an external Jade template to use (not recommended).',
@@ -109,6 +118,7 @@ if (args.printTemplate) {
 
 // Assemble options
 var options = {
+  density: args.density[0],
   pretty: args.pretty
 };
 
@@ -121,7 +131,7 @@ try {
     options
   );
 } catch (e) {
-  console.error(e.message);
+  console.error(e);
   process.exit(1);
 }
 

@@ -63,25 +63,18 @@ table {
 }
 
 /* Header */
-.header {
-  display: flex;
-}
+.header {}
 .header-about {
-  display: flex;
   text-align: center;
-  flex-flow: column nowrap;
-  align-items: center;
-  justify-content: center;
 }
 .header-about-name {
   font-size: 2em;
   font-weight: bold;
+  text-align: center;
 }
 .header-about-email {}
 .header-about-phone {}
-.header-address {
-  flex-grow: 1;
-}
+.header-address {}
 .header-address--left {
   text-align: left;
 }
@@ -91,12 +84,21 @@ table {
 .header-address-title {
   font-weight: bold;
 }
+.header-wrap {
+  display: flex;
+  align-items: flex-start;
+}
 
 /* Item */
-.item {}
-.item-date {
-  text-align: right;
+.item {
+  display: flex;
+}
+.item-wrap {
   flex-grow: 1;
+}
+.item-date {
+  flex-shrink: 0;
+  margin-left: 1em;
 }
 .item-description {
   margin-left: 4em;
@@ -137,4 +139,8 @@ table {
   padding: 0.25em 0;
   border-top: 1px solid black;
   border-bottom: 1px solid black;
+}
+
+.spacer {
+  flex-grow: 1;
 }
