@@ -48,7 +48,7 @@ argparser.addArgument(
   }
 );
 argparser.addArgument(
-  ['-g', '--output'],
+  ['-o', '--output'],
   {
     help: 'Specify output file.',
     metavar: 'OUTPUT',
