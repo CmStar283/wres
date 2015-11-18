@@ -130,9 +130,9 @@ var options = {
 // Write generated resume to STDOUT or output file
 try {
   var resume = wres.render(
+    fs.readFileSync(args.resume, 'utf8'),
     args.format ? fs.readFileSync(args.format[0], 'utf8') : null,
     args.theme ? fs.readFileSync(args.theme[0], 'utf8') : null,
-    fs.readFileSync(args.resume, 'utf8'),
     options
   );
 } catch (e) {
