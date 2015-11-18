@@ -48,12 +48,11 @@ argparser.addArgument(
   }
 );
 argparser.addArgument(
-  ['-o', '--out'],
+  ['-g', '--output'],
   {
-    help: 'Specify output file/location.',
+    help: 'Specify output file.',
     nargs: 1,
-    metavar: 'OUTPUT',
-    dest: 'outfile'
+    metavar: 'OUTPUT'
   }
 );
 argparser.addArgument(
@@ -95,6 +94,15 @@ argparser.addArgument(
 );
 var args = argparser.parseArgs();
 
+// Determine output destination
+var out = console.log;
+if (args.output) {
+  var outfile = fs.openSync(args.output[0], 'w');
+  var out = function(data) {
+    fs.writeSync(outfile, data);
+  }
+}
+
 // List pre-defined themes, if specified
 if (args.listThemes) {
   var files = fs.readdirSync(path.resolve(__dirname, '../styles'));
@@ -109,10 +117,7 @@ if (args.printTemplate) {
   var template = fs.readFileSync(
     path.resolve(__dirname, '../examples/template.yml'), 'utf8'
   );
-  if (args.outfile)
-    fs.writeFileSync(args.outfile[0], template);
-  else
-    console.log(template);
+  out(template);
   process.exit(0);
 }
 
@@ -124,7 +129,7 @@ var options = {
 
 // Write generated resume to STDOUT or output file
 try {
-  var output = wres.render(
+  var resume = wres.render(
     args.format ? fs.readFileSync(args.format[0], 'utf8') : null,
     args.theme ? fs.readFileSync(args.theme[0], 'utf8') : null,
     fs.readFileSync(args.resume, 'utf8'),
@@ -134,10 +139,9 @@ try {
   console.error(e);
   process.exit(1);
 }
+out(resume);
 
-if (args.outfile) {
-  fs.writeFileSync(args.outfile[0], output);
-} else {
-  console.log(output);
-}
+// Clean up
+if (outfile)
+  fs.closeSync(outfile);
 process.exit(0);
