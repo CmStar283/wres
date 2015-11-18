@@ -11,8 +11,8 @@ npm i -g wres
 
 ## usage
 ```
-usage: wres [-h] [-v] [-f FORMAT] [-o OUTPUT] [-p] [--print-template]
-            [-t THEME] [--list-themes]
+usage: wres [-h] [-v] [-d DENSITY] [-f FORMAT] [-o OUTPUT] [-p]
+            [--print-template] [-t THEME] [--list-themes]
             [resume]
 
 Resume webpage generator
@@ -23,11 +23,13 @@ Positional arguments:
 Optional arguments:
   -h, --help            Show this help message and exit.
   -v, --version         Show program's version number and exit.
+  -d DENSITY, --density DENSITY
+                        Use the alternative, compact template.
   -f FORMAT, --format FORMAT
                         Specify an external Jade template to use (not
                         recommended).
-  -o OUTPUT, --out OUTPUT
-                        Specify output file/location.
+  -o OUTPUT, --output OUTPUT
+                        Specify output file.
   -p, --pretty          Output pretty HTML.
   --print-template      Print the template resume and exit.
   -t THEME, --theme THEME
