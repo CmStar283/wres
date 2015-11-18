@@ -34,7 +34,7 @@ var argparser = new ArgumentParser({
 argparser.addArgument(
   ['-d', '--density'],
   {
-    defaultValue: ['comfortable'],
+    defaultValue: ['comfy'],
     help: 'Use the alternative, compact template.',
     metavar: 'DENSITY',
     nargs: 1

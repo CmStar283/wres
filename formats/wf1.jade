@@ -29,7 +29,7 @@ mixin items(items)
                 p.item-date= item.date
             if item.description
               p.item-description= item.description
-        when 'comfortable'
+        when 'comfy'
         when 'cozy'
           div.item-wrap
             div.item-header
@@ -53,7 +53,7 @@ html
     style .item-location::before{content: ", "}
   body
     header.header
-      if __opts.density === 'comfortable' || __opts.density === 'cozy'
+      if __opts.density === 'comfy' || __opts.density === 'cozy'
         h1.header-about-name= name
       div.header-wrap
         address.header-address.header-address--left
