@@ -36,8 +36,8 @@ argparser.addArgument(
   {
     defaultValue: ['comfortable'],
     help: 'Use the alternative, compact template.',
-    nargs: 1,
-    metavar: 'DENSITY'
+    metavar: 'DENSITY',
+    nargs: 1
   }
 );
 argparser.addArgument(
@@ -51,23 +51,23 @@ argparser.addArgument(
   ['-g', '--output'],
   {
     help: 'Specify output file.',
-    nargs: 1,
-    metavar: 'OUTPUT'
+    metavar: 'OUTPUT',
+    nargs: 1
   }
 );
 argparser.addArgument(
   ['-p', '--pretty'],
   {
+    action: 'storeTrue',
     help: 'Output pretty HTML.'
-    action: 'storeTrue'
   }
 );
 argparser.addArgument(
   ['--print-template'],
   {
-    help: 'Print the template resume and exit.',
     action: 'storeTrue',
-    dest: 'printTemplate'
+    dest: 'printTemplate',
+    help: 'Print the template resume and exit.'
   }
 );
 argparser.addArgument(
@@ -80,9 +80,9 @@ argparser.addArgument(
 argparser.addArgument(
   ['--list-themes'],
   {
-    help: 'List pre-defined themes.',
     action: 'storeTrue',
-    dest: 'listThemes'
+    dest: 'listThemes',
+    help: 'List pre-defined themes.'
   }
 );
 argparser.addArgument(
