@@ -50,10 +50,7 @@ html
     meta(name="author" content="#{name}")
     title #{name}'s Resume
     style!= __theme
-    style.
-      .item-location::before {
-        content: ", ";
-      }
+    style .item-location::before{content: ", "}
   body
     header.header
       if __opts.density === 'comfortable' || __opts.density === 'cozy'
