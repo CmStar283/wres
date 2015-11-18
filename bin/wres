@@ -58,6 +58,7 @@ argparser.addArgument(
 argparser.addArgument(
   ['-p', '--pretty'],
   {
+    defaultValue: false,
     help: 'Output pretty HTML.',
     action: 'storeTrue'
   }
