@@ -137,6 +137,8 @@ try {
   );
 } catch (e) {
   console.error(e);
+  if (outfile)
+    fs.closeSync(outfile);
   process.exit(1);
 }
 out(resume);
