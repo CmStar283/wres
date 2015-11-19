@@ -122,7 +122,7 @@ if (args.printTemplate) {
 }
 
 // Assemble options
-var options = {
+var opts = {
   density: args.density[0],
   pretty: args.pretty
 };
@@ -133,7 +133,7 @@ try {
     fs.readFileSync(args.resume, 'utf8'),
     args.format ? fs.readFileSync(args.format[0], 'utf8') : null,
     args.theme ? fs.readFileSync(args.theme[0], 'utf8') : null,
-    options
+    opts
   );
 } catch (e) {
   console.error(e);
