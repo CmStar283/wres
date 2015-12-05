@@ -1,5 +1,8 @@
 # Istanbul
 coverage
 
+# Test Scripts
+test
+
 # Travis-CI
 .travis.yml
