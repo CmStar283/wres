@@ -7,11 +7,11 @@ describe('Error Handling', function() {
   it('null resume throws error', function() {
     assert.throws(function() {
       wres.render();
-    }, Error);
+    });
   });
   it('invalid resume throws error', function() {
     assert.throws(function() {
       wres.render('*');
-    }, Error);
+    });
   });
 });
