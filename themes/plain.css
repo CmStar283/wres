@@ -1,0 +1,147 @@
+/**
+ * Copyright 2015 Cm_Star. All Rights Reserved.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, address, cite, code, del, dfn,
+em, img, ins, kbd, q, s, samp, small, strike,
+strong, sub, sup, tt, var, b, u, i, dl, dt,
+dd, ol, ul, li, fieldset, label, legend, table,
+caption, tbody, tfoot, thead, tr, th, td,
+article, aside, details, embed, figure,
+figcaption, footer, header, hgroup, menu, nav,
+output, section, summary, time, mark {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Theme */
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+:root {
+  font-family: "Open Sans", "Arial", sans-serif;
+  font-size: 10pt;
+  text-rendering: optimizeLegibility;
+}
+@media not print {
+  body {
+    margin: 16px 32px;
+  }
+}
+
+/* Header */
+.header {}
+.header-about {
+  text-align: center;
+}
+.header-about-name {
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center;
+}
+.header-about-email {}
+.header-about-phone {}
+.header-address {
+  flex: 1 0 0;
+}
+.header-address--left {
+  text-align: left;
+}
+.header-address--right {
+  text-align: right;
+}
+.header-address-title {
+  font-weight: bold;
+}
+.header-wrap {
+  display: flex;
+  align-items: flex-start;
+}
+
+/* Item */
+.item {
+  display: flex;
+}
+.item-wrap {
+  flex-grow: 1;
+}
+.item-date {
+  flex-shrink: 0;
+  margin-left: 1em;
+}
+.item-description {
+  margin-left: 4em;
+}
+.item-header {
+  display: flex;
+  align-items: flex-end;
+}
+.item-list {}
+.item-list--bulleted .item-header::before {
+  content: "\25CF";
+  margin-right: 1em;
+}
+.item-list--bulleted .item-title {
+  font-weight: normal;
+}
+.item-location {}
+.item-title {
+  font-weight: bold;
+}
+
+/* Section */
+.section {
+  margin: 0.5em 0;
+  page-break-inside: avoid;
+}
+.section-description {}
+.section-title {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-bottom: 0.25em;
+}
+
+/* Miscellaneous */
+.references-notice {
+  font-weight: bold;
+  padding: 0.25em 0;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+.spacer {
+  flex-grow: 1;
+}
