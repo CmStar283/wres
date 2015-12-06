@@ -11,8 +11,8 @@ npm i -g wres
 
 ## usage
 ```
-usage: wres [-h] [-v] [-d DENSITY] [-f FORMAT] [-o OUTPUT] [-p]
-            [--print-template] [-t THEME] [--list-themes]
+usage: wres [-h] [-v] [-d DENSITY] [-f FORMAT] [--list-formats]
+            [--list-themes] [-o OUTPUT] [-p] [--print-template] [-t THEME]
             [resume]
 
 Resume webpage generator
@@ -26,8 +26,10 @@ Optional arguments:
   -d DENSITY, --density DENSITY
                         Specify the resume density (default: comfy).
   -f FORMAT, --format FORMAT
-                        Specify an external Jade template to use (not
-                        recommended).
+                        Specify an pre-defined or external Jade template to
+                        use (not recommended).
+  --list-formats        List pre-defined formats and exit.
+  --list-themes         List pre-defined themes and exit.
   -o OUTPUT, --output OUTPUT
                         Specify output file (default: STDOUT).
   -p, --pretty          Output indented HTML (default: false).
@@ -35,7 +37,6 @@ Optional arguments:
   -t THEME, --theme THEME
                         Specify a pre-defined or external CSS theme (default:
                         plain).
-  --list-themes         List pre-defined themes.
 ```
 
 ## getting started
