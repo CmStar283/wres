@@ -34,8 +34,9 @@ var argparser = new ArgumentParser({
 argparser.addArgument(
   ['-d', '--density'],
   {
+    choices: ['compact', 'comfy', 'cozy'],
     defaultValue: ['comfy'],
-    help: 'Use the alternative, compact template.',
+    help: 'Specify the resume density (default: comfy).',
     metavar: 'DENSITY',
     nargs: 1
   }
@@ -50,7 +51,7 @@ argparser.addArgument(
 argparser.addArgument(
   ['-o', '--output'],
   {
-    help: 'Specify output file.',
+    help: 'Specify output file (default: STDOUT).',
     metavar: 'OUTPUT',
     nargs: 1
   }
@@ -59,7 +60,7 @@ argparser.addArgument(
   ['-p', '--pretty'],
   {
     action: 'storeTrue',
-    help: 'Output pretty HTML.'
+    help: 'Output indented HTML (default: false).'
   }
 );
 argparser.addArgument(
@@ -73,7 +74,7 @@ argparser.addArgument(
 argparser.addArgument(
   ['-t', '--theme'],
   {
-    help: 'Specify a pre-defined or external CSS theme.',
+    help: 'Specify a pre-defined or external CSS theme (default: plain).',
     nargs: 1
   }
 );
@@ -88,7 +89,7 @@ argparser.addArgument(
 argparser.addArgument(
   ['resume'],
   {
-    help: 'YAML or JSON file containing the resume information',
+    help: 'YAML or JSON file containing the resume information.',
     nargs: '?'
   }
 );

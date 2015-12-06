@@ -18,22 +18,23 @@ usage: wres [-h] [-v] [-d DENSITY] [-f FORMAT] [-o OUTPUT] [-p]
 Resume webpage generator
 
 Positional arguments:
-  resume                YAML or JSON file containing the resume information
+  resume                YAML or JSON file containing the resume information.
 
 Optional arguments:
   -h, --help            Show this help message and exit.
   -v, --version         Show program's version number and exit.
   -d DENSITY, --density DENSITY
-                        Use the alternative, compact template.
+                        Specify the resume density (default: comfy).
   -f FORMAT, --format FORMAT
                         Specify an external Jade template to use (not
                         recommended).
   -o OUTPUT, --output OUTPUT
-                        Specify output file.
-  -p, --pretty          Output pretty HTML.
+                        Specify output file (default: STDOUT).
+  -p, --pretty          Output indented HTML (default: false).
   --print-template      Print the template resume and exit.
   -t THEME, --theme THEME
-                        Specify a pre-defined or external CSS theme.
+                        Specify a pre-defined or external CSS theme (default:
+                        plain).
   --list-themes         List pre-defined themes.
 ```
 
