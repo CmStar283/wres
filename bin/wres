@@ -44,8 +44,24 @@ argparser.addArgument(
 argparser.addArgument(
   ['-f', '--format'],
   {
-    help: 'Specify an external Jade template to use (not recommended).',
+    help: 'Specify an pre-defined or external Jade template to use (not recommended).',
     nargs: 1
+  }
+);
+argparser.addArgument(
+  ['--list-formats'],
+  {
+    action: 'storeTrue',
+    dest: 'listFormats',
+    help: 'List pre-defined formats and exit.'
+  }
+);
+argparser.addArgument(
+  ['--list-themes'],
+  {
+    action: 'storeTrue',
+    dest: 'listThemes',
+    help: 'List pre-defined themes and exit.'
   }
 );
 argparser.addArgument(
@@ -79,14 +95,6 @@ argparser.addArgument(
   }
 );
 argparser.addArgument(
-  ['--list-themes'],
-  {
-    action: 'storeTrue',
-    dest: 'listThemes',
-    help: 'List pre-defined themes.'
-  }
-);
-argparser.addArgument(
   ['resume'],
   {
     help: 'YAML or JSON file containing the resume information.',
@@ -104,15 +112,26 @@ if (args.output) {
   }
 }
 
+// List pre-defined formats, if specified
+if (args.listFormats) {
+  var files = fs.readdirSync(path.resolve(__dirname, '../formats'));
+  files.forEach(function(e, i, a) {
+    a[i] = path.basename(e, path.extname(e));
+  });
+  console.log('Available formats: ' + files);
+  process.exit(0);
+}
+
 // List pre-defined themes, if specified
 if (args.listThemes) {
-  var files = fs.readdirSync(path.resolve(__dirname, '../styles'));
+  var files = fs.readdirSync(path.resolve(__dirname, '../themes'));
   files.forEach(function(e, i, a) {
     a[i] = path.basename(e, path.extname(e));
   });
   console.log('Available themes: ' + files);
   process.exit(0);
 }
+
 // Print the template, if specified
 if (args.printTemplate) {
   var template = fs.readFileSync(
@@ -131,9 +150,9 @@ var opts = {
 // Write generated resume to STDOUT or output file
 try {
   var resume = wres.render(
-    fs.readFileSync(args.resume, 'utf8'),
-    args.format ? fs.readFileSync(args.format[0], 'utf8') : null,
-    args.theme ? fs.readFileSync(args.theme[0], 'utf8') : null,
+    args.resume,
+    args.format ? args.format[0] : null,
+    args.theme ? args.theme[0] : null,
     opts
   );
 } catch (e) {
