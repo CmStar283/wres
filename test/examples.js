@@ -24,26 +24,42 @@ var yaml = require('js-yaml');
 describe('Examples', function() {
   fs.readdirSync(path.resolve(__dirname, '../examples')).forEach(function (e) {
     // Load each example into a YAML and JSON string, if applicable
-    var r_yaml, r_json;
+    var r_yaml, r_json, r_file = path.resolve(__dirname, '../examples/' + e);
     if(/\.yml/.test(e)) {
-      r_yaml = fs.readFileSync(path.resolve(__dirname, '../examples/' + e), 'utf8');
+      r_yaml = fs.readFileSync(r_file, 'utf8');
       r_json = JSON.stringify(yaml.safeLoad(r_yaml));
     } else if (/\.json/.test(e)) {
-      r_json = fs.readFileSync(path.resolve(__dirname, '../examples/' + e), 'utf8');
+      r_json = fs.readFileSync(r_file, 'utf8');
       r_yaml = yaml.safeDump(r_json);
     } else {
       return; // Not a YAML or JSON string, so skip
     }
 
-    var example = path.basename(e, path.extname(e)) // Determine name of the exmaple
+    var example = path.basename(e, path.extname(e)); // Determine name of the exmaple
+    var tempDir = path.join(__dirname, 'temp');
+    fs.mkdirSync(tempDir);
 
     // Test wres render with YAML and JSON formats of each example
-    it(example + ' (yaml) renders without error', function() {
+    it(example + ' (yaml file) renders without error', function() {
+      var file = path.join(tempDir, 'resume.yml');
+      fs.writeFileSync(file, r_yaml);
+      assert.doesNotThrow(function() {
+        wres.render(file, null, null, null);
+      });
+    });
+    it(example + ' (json file) renders without error', function() {
+      var file = path.join(tempDir, 'resume.json');
+      fs.writeFileSync(file, r_json);
+      assert.doesNotThrow(function() {
+        wres.render(file, null, null, null);
+      });
+    });
+    it(example + ' (yaml string) renders without error', function() {
       assert.doesNotThrow(function() {
         wres.render(r_yaml, null, null, null);
       });
     });
-    it(path.basename(e, path.extname(e)) + ' (json) renders without error', function() {
+    it(example + ' (json string) renders without error', function() {
       assert.doesNotThrow(function() {
         wres.render(r_json, null, null, null);
       });

@@ -9,3 +9,6 @@ node_modules
 
 # Packed NPM packages
 wres-*.tgz
+
+# Temporary Test Files
+test/temp
