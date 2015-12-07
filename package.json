@@ -1,6 +1,6 @@
 {
   "name": "wres",
-  "version": "0.2.2",
+  "version": "0.2.1",
   "description": "Resume webpage generator",
   "main": "wres.js",
   "scripts": {
