@@ -37,7 +37,9 @@ describe('Examples', function() {
 
     var example = path.basename(e, path.extname(e)); // Determine name of the exmaple
     var tempDir = path.join(__dirname, 'temp');
-    fs.mkdirSync(tempDir);
+    try {
+      fs.mkdirSync(tempDir);
+    } catch (err) {}
 
     // Test wres render with YAML and JSON formats of each example
     it(example + ' (yaml file) renders without error', function() {
